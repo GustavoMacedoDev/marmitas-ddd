@@ -112,6 +112,6 @@ public class AuthenticationController {
 		String refreshedToken = jwtTokenUtil.refreshToken(token.get());
 		response.setData(new TokenDto(refreshedToken));
 		return ResponseEntity.ok(response);
+	
 	}
-
 }

@@ -41,38 +41,49 @@ public class ProdutoServiceImpl implements ProdutoService {
 
 	@Override
 	public List<Produto> findByCategoriaId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Produto> produtos = produtoRepository.findByCategoriaId(id);
+		
+		return produtos;
 	}
 
 	@Override
 	public Produto insert(ProdutoNewDto produtoNewDto) {
-		// TODO Auto-generated method stub
-		return null;
+		Produto produto = new Produto();
+		
+		produto.setNome(produtoNewDto.getNome());
+		produto.setPreco(produtoNewDto.getPreco());
+		produto.setCategoria(produtoNewDto.getCategoria());
+		produto.setPessoaJuridica(produtoNewDto.getRestaurante());
+		produto.setOpAtendimento(produtoNewDto.getOpcao());
+		
+		produtoRepository.save(produto);
+		
+		return produto;
 	}
 
 	@Override
 	public Produto update(Produto produto) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		this.produtoRepository.save(produto);
+		
+		return produto;
 	}
 
 	@Override
 	public Produto inativa(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Produto produto = this.produtoRepository.inativaProduto(id);
+		
+		return produto;
 	}
 
 	@Override
 	public List<Produto> getProdutosQuiosque() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.produtoRepository.findAllQuiosque();
 	}
 
 	@Override
 	public List<Produto> getProdutosEntrega() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.produtoRepository.findAllEntrega();
 	}
 	
 	

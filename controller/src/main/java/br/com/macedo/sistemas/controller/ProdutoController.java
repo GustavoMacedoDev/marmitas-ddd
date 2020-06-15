@@ -42,12 +42,12 @@ public class ProdutoController {
 //		
 //	}
 //	
-//	@RequestMapping(value = "/produtos", method = RequestMethod.GET)
-//	public @ResponseBody List<Produto> getProdutos() {
-//		
-//		return this.produtoService.findAll();
-//		
-//	}
+	@RequestMapping(value = "/produtos", method = RequestMethod.GET)
+	public @ResponseBody List<Produto> getProdutos() {
+		
+		return this.produtoService.findAll();
+		
+	}
 //	
 //	
 //	@RequestMapping(value = "/produto/{id}", method = RequestMethod.GET)

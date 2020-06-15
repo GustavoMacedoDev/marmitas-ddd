@@ -1,13 +1,21 @@
 package br.com.macedo.sistemas.domain.aggregate;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "produto")
@@ -26,31 +34,31 @@ public class Produto implements Serializable{
 	
 	private int status = 0;
 	
-//	@ManyToOne
-//	private Categoria categoria;
-//	
-//	@ManyToOne
-//	private PessoaJuridica pessoaJuridica;
-//	
-//	@ManyToOne
-//	private OpcaoAtendimento opAtendimento;
-//	
-//	@JsonIgnore
-//	@OneToMany(mappedBy="id.produto")
-//	private Set<ItemPedido> itens = new HashSet<>();
+	@ManyToOne
+	private Categoria categoria;
+	
+	@ManyToOne
+	private PessoaJuridica pessoaJuridica;
+	
+	@ManyToOne
+	private OpcaoAtendimento opAtendimento;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="id.produto")
+	private Set<ItemPedido> itens = new HashSet<>();
 	
 	public Produto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-//	@JsonIgnore
-//	public List<Pedido> getPedidos() {
-//		List<Pedido> lista = new ArrayList<>();
-//		for (ItemPedido x : itens) {
-//			lista.add(x.getPedido());
-//		}
-//		return lista;
-//	}
+	@JsonIgnore
+	public List<Pedido> getPedidos() {
+		List<Pedido> lista = new ArrayList<>();
+		for (ItemPedido x : itens) {
+			lista.add(x.getPedido());
+		}
+		return lista;
+	}
 
 	public Integer getId() {
 		return id;
@@ -84,38 +92,38 @@ public class Produto implements Serializable{
 		this.status = status;
 	}
 
-//	public Set<ItemPedido> getItens() {
-//		return itens;
-//	}
-//
-//	public void setItens(Set<ItemPedido> itens) {
-//		this.itens = itens;
-//	}
-//	
-//
-//	public Categoria getCategoria() {
-//		return categoria;
-//	}
-//
-//	public void setCategoria(Categoria categoria) {
-//		this.categoria = categoria;
-//	}
-//
-//	public PessoaJuridica getPessoaJuridica() {
-//		return pessoaJuridica;
-//	}
-//
-//	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-//		this.pessoaJuridica = pessoaJuridica;
-//	}
-//	
-//	public OpcaoAtendimento getOpAtendimento() {
-//		return opAtendimento;
-//	}
-//
-//	public void setOpAtendimento(OpcaoAtendimento opAtendimento) {
-//		this.opAtendimento = opAtendimento;
-//	}
+	public Set<ItemPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItemPedido> itens) {
+		this.itens = itens;
+	}
+	
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public PessoaJuridica getPessoaJuridica() {
+		return pessoaJuridica;
+	}
+
+	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+		this.pessoaJuridica = pessoaJuridica;
+	}
+	
+	public OpcaoAtendimento getOpAtendimento() {
+		return opAtendimento;
+	}
+
+	public void setOpAtendimento(OpcaoAtendimento opAtendimento) {
+		this.opAtendimento = opAtendimento;
+	}
 
 	@Override
 	public int hashCode() {
