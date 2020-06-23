@@ -157,10 +157,7 @@ public class PedidoServiceImpl implements PedidoService{
 		
 	}
 
-	@Override
-	public List<Pedido> findByOpAtendimentoId(Integer id) {
-		return this.pedidoRepository.findByOpAtendimentoId(id); 
-	}
+	
 
 	@Override
 	public List<Pedido> findByMesaId(Integer id) {
@@ -201,6 +198,11 @@ public class PedidoServiceImpl implements PedidoService{
 		
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + idPedido + ", Tipo: " + Pedido.class.getName()));
+	}
+
+	@Override
+	public List<Pedido> findByOpAtendimentoIdDataAtual(Integer id) {
+		return this.pedidoRepository.findByOpAtendimentoId(id);
 	}
 	
 	

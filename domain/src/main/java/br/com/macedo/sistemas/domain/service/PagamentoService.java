@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import br.com.macedo.sistemas.domain.aggregate.Pagamento;
 import br.com.macedo.sistemas.domain.dto.PagamentoEntregaDto;
 import br.com.macedo.sistemas.domain.dto.PagamentoMesaDto;
+import br.com.macedo.sistemas.domain.dto.ResumoFaturamentoDto;
 
 public interface PagamentoService {
 	
@@ -23,6 +24,8 @@ public interface PagamentoService {
 	List<Pagamento> findByIdPedido(@Valid Integer id);
 
 	void encerraPagamento(Pagamento pagamento);
+	
+	List<ResumoFaturamentoDto> resumoFaturamento();
 	
 	
 

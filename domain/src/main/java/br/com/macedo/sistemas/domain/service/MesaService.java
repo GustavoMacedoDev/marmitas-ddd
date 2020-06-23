@@ -11,7 +11,7 @@ import br.com.macedo.sistemas.domain.aggregate.Pedido;
 
 public interface MesaService {
 	
-	List<Mesa> findAll();
+	List<Mesa> findAllByOrderByIdAsc();
 		
 	Optional<Mesa> buscaMesaPorId(Integer id);
 

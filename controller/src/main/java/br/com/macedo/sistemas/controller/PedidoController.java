@@ -1,6 +1,8 @@
 package br.com.macedo.sistemas.controller;
 
 import java.net.URI;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -55,7 +57,13 @@ public class PedidoController {
 	@RequestMapping(value = "/pedidoOpcao/{id}", method = RequestMethod.GET)
 	public @ResponseBody List<Pedido> findByOpAtendimento(@PathVariable Integer id) {
 		
-		List<Pedido> pedidos = this.pedidoService.findByOpAtendimentoId(id);
+		LocalDate dataAtual = LocalDate.now();
+		
+		
+		
+		System.out.println("data atual  2" + dataAtual + " data" + new Date().getTime());
+		
+		List<Pedido> pedidos = this.pedidoService.findByOpAtendimentoIdDataAtual(id);
 		
 		return pedidos;
 		
@@ -63,6 +71,8 @@ public class PedidoController {
 	
 	@RequestMapping(value = "/pedidoInativosOpcao/{id}", method = RequestMethod.GET)
 	public @ResponseBody List<Pedido> findByOpAtendimentoInativos(@PathVariable Integer id) {
+		
+		
 		
 		List<Pedido> pedidos = this.pedidoService.findByOpAtendimentoIdInativos(id);
 		

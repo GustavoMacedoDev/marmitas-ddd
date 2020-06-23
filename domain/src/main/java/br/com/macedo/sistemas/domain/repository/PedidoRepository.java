@@ -12,7 +12,7 @@ import br.com.macedo.sistemas.domain.aggregate.Pedido;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
 	
-	@Query(value = "SELECT * FROM pedido where op_atendimento_id = ? and status = 0", nativeQuery = true)
+	@Query(value = "SELECT * FROM pedido where op_atendimento_id = ? and status = 0 order by instante desc", nativeQuery = true)
 	List<Pedido> findByOpAtendimentoId(Integer id);
 	
 	@Query(value = "SELECT * FROM pedido where op_atendimento_id = ? and status = 1", nativeQuery = true)

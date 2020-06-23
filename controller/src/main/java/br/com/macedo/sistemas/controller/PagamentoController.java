@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.macedo.sistemas.domain.aggregate.Pagamento;
 import br.com.macedo.sistemas.domain.dto.PagamentoEntregaDto;
 import br.com.macedo.sistemas.domain.dto.PagamentoMesaDto;
+import br.com.macedo.sistemas.domain.dto.ResumoFaturamentoDto;
 import br.com.macedo.sistemas.domain.service.PagamentoService;
 
 @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
@@ -56,6 +57,11 @@ public class PagamentoController {
 	@RequestMapping(value = "/pagamentos", method = RequestMethod.GET)
 	public @ResponseBody List<Pagamento> listaPagamentos() {
 		return this.pagamentoService.findAll();
+	}
+	
+	@RequestMapping(value = "/faturamento", method = RequestMethod.GET)
+	public @ResponseBody List<ResumoFaturamentoDto> faturamento() {
+		return this.pagamentoService.resumoFaturamento();
 	}
 	
 	@RequestMapping(value = "/pagamento/mesa/{id}", method = RequestMethod.GET)

@@ -1,5 +1,6 @@
 package br.com.macedo.sistemas.service.implementation;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import br.com.macedo.sistemas.domain.aggregate.Pagamento;
 import br.com.macedo.sistemas.domain.aggregate.Pedido;
 import br.com.macedo.sistemas.domain.dto.PagamentoEntregaDto;
 import br.com.macedo.sistemas.domain.dto.PagamentoMesaDto;
+import br.com.macedo.sistemas.domain.dto.ResumoFaturamentoDto;
 import br.com.macedo.sistemas.domain.repository.PagamentoRepository;
 import br.com.macedo.sistemas.domain.service.PagamentoService;
 
@@ -112,10 +114,68 @@ public class PagamentoServiceImpl implements PagamentoService{
 			this.pagamentoRepository.save(pag);
 		});
 	}
+
+	@Override
+	public List<ResumoFaturamentoDto> resumoFaturamento() {
+		List<Pagamento> pagamentos = new ArrayList<>();
+		
+		pagamentos = pagamentoRepository.findAll();
+		
+		ResumoFaturamentoDto dinheiro = new ResumoFaturamentoDto();
+		ResumoFaturamentoDto debito = new ResumoFaturamentoDto();
+		ResumoFaturamentoDto credito = new ResumoFaturamentoDto();
+		ResumoFaturamentoDto alimentacao = new ResumoFaturamentoDto();
+		ResumoFaturamentoDto assinar = new ResumoFaturamentoDto();
+		ResumoFaturamentoDto online = new ResumoFaturamentoDto();
+		
+		double somaDinheiro = 0;
+		double somaDebito = 0;
+		double somaCredito = 0;
+		double somaAlimentacao = 0;
+		double somaAssinar = 0;
+		double somaOnline = 0;
+		for(Pagamento pags: pagamentos) {
+			if(pags.getFormaPagamento().getId() == 1 ) {
+					dinheiro.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaDinheiro += pags.getValorPago();
+					dinheiro.setValor(somaDinheiro);
+			} else if(pags.getFormaPagamento().getId() == 2 ) {
+					debito.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaDebito += pags.getValorPago();
+					debito.setValor(somaDebito);
+			} else if(pags.getFormaPagamento().getId() == 3 ) {
+					credito.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaCredito += pags.getValorPago();
+					credito.setValor(somaCredito);
+			} else if(pags.getFormaPagamento().getId() == 4 ) {
+					alimentacao.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaAlimentacao += pags.getValorPago();
+					alimentacao.setValor(somaAlimentacao);
+			} else if(pags.getFormaPagamento().getId() == 5 ) {
+					assinar.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaAssinar += pags.getValorPago();
+					assinar.setValor(somaAssinar);
+			} else if(pags.getFormaPagamento().getId() == 5 ) {
+					online.setPagamento(pags.getFormaPagamento().getFormaPagamento());
+					somaOnline += pags.getValorPago();
+					online.setValor(somaOnline);
+			}
+				
+			
+		}
+		
+		List<ResumoFaturamentoDto> resumos = new ArrayList<>();
+		resumos.add(dinheiro);
+		resumos.add(debito);
+		resumos.add(credito);
+		resumos.add(alimentacao);
+		resumos.add(assinar);
+		resumos.add(online);
+		
+		
+		return resumos;
+		
 	
 	
-	
-	
-	
-	
+	}
 }

@@ -28,8 +28,8 @@ public class MesaServiceImpl implements MesaService{
 	private PagamentoServiceImpl pagamentoService;
 
 	@Override
-	public List<Mesa> findAll() {
-		return this.mesaRepository.findAll();
+	public List<Mesa> findAllByOrderByIdAsc() {
+		return this.mesaRepository.findAllByOrderByIdAsc();
 	}
 
 	@Override

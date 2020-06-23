@@ -23,7 +23,7 @@ public interface PedidoService {
 
 	void atualizaMesa(Pedido obj);
 
-	List<Pedido> findByOpAtendimentoId(Integer id);
+	List<Pedido> findByOpAtendimentoIdDataAtual(Integer id);
 
 	List<Pedido> findByMesaId(Integer id);
 	

@@ -30,7 +30,7 @@ public class MesaController {
 	
 	@RequestMapping(value = "/mesas", method = RequestMethod.GET)
 	public @ResponseBody List<Mesa> listaMesas() {
-		return mesaService.findAll();
+		return mesaService.findAllByOrderByIdAsc();
 	}
 	
 	@RequestMapping(value = "/mesa/{id}", method = RequestMethod.GET)
