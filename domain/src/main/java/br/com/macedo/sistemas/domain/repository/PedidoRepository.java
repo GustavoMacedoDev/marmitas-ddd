@@ -31,5 +31,8 @@ public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
 	@Query(value = "update pedido set status = 1 where id_pedido = ?", nativeQuery = true)
 	void fechaPedidosEntrega(Integer id);
 	
+	@Query(value = "select count(id_pedido) from pedido", nativeQuery = true)
+	int totaldePedidos();
+	
 	
 }

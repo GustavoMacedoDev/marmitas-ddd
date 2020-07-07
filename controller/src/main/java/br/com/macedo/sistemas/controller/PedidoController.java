@@ -45,6 +45,13 @@ public class PedidoController {
 		
 	}
 	
+	@RequestMapping(value = "/totalpedidos", method = RequestMethod.GET)
+	public @ResponseBody int getTotalPedidos() {
+		
+		return this.pedidoService.totalDePedidos();
+		
+	}
+	
 	@RequestMapping(value = "/pedido/{id}", method = RequestMethod.GET)
 	public @ResponseBody ListaPedidoEntregaDto findById(@PathVariable Integer id) {
 		

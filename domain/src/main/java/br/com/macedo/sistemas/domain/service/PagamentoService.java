@@ -27,6 +27,7 @@ public interface PagamentoService {
 	
 	List<ResumoFaturamentoDto> resumoFaturamento();
 	
+	List<Pagamento> pagamentosPorFormaPagamento(Integer id);
 	
 
 }

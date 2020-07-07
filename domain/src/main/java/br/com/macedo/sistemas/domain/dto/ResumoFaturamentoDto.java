@@ -4,6 +4,7 @@ public class ResumoFaturamentoDto {
 	
 	private String pagamento;
 	private Double valor;
+	private Integer idFormaPagamento;
 	
 	public String getPagamento() {
 		return pagamento;
@@ -17,8 +18,11 @@ public class ResumoFaturamentoDto {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+	public Integer getIdFormaPagamento() {
+		return idFormaPagamento;
+	}
+	public void setIdFormaPagamento(Integer idFormaPagamento) {
+		this.idFormaPagamento = idFormaPagamento;
+	}
 	
-	
-	
-
 }

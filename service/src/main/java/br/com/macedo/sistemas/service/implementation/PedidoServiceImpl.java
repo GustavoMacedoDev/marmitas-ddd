@@ -204,6 +204,11 @@ public class PedidoServiceImpl implements PedidoService{
 	public List<Pedido> findByOpAtendimentoIdDataAtual(Integer id) {
 		return this.pedidoRepository.findByOpAtendimentoId(id);
 	}
+
+	@Override
+	public int totalDePedidos() {
+		return this.pedidoRepository.totaldePedidos();
+	}
 	
 	
 	

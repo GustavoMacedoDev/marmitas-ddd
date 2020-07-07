@@ -136,29 +136,50 @@ public class PagamentoServiceImpl implements PagamentoService{
 		double somaOnline = 0;
 		for(Pagamento pags: pagamentos) {
 			if(pags.getFormaPagamento().getId() == 1 ) {
+					dinheiro.setIdFormaPagamento(pags.getFormaPagamento().getId());
 					dinheiro.setPagamento(pags.getFormaPagamento().getFormaPagamento());
 					somaDinheiro += pags.getValorPago();
 					dinheiro.setValor(somaDinheiro);
 			} else if(pags.getFormaPagamento().getId() == 2 ) {
+					debito.setIdFormaPagamento(pags.getFormaPagamento().getId());
 					debito.setPagamento(pags.getFormaPagamento().getFormaPagamento());
 					somaDebito += pags.getValorPago();
 					debito.setValor(somaDebito);
 			} else if(pags.getFormaPagamento().getId() == 3 ) {
+					credito.setIdFormaPagamento(pags.getFormaPagamento().getId());
 					credito.setPagamento(pags.getFormaPagamento().getFormaPagamento());
 					somaCredito += pags.getValorPago();
 					credito.setValor(somaCredito);
 			} else if(pags.getFormaPagamento().getId() == 4 ) {
-					alimentacao.setPagamento(pags.getFormaPagamento().getFormaPagamento());
-					somaAlimentacao += pags.getValorPago();
-					alimentacao.setValor(somaAlimentacao);
+					String alimentacaoPag = pags.getFormaPagamento().getFormaPagamento();
+					System.out.println(alimentacaoPag);
+					if(alimentacaoPag == null) {
+						alimentacao.setPagamento("Alimentação");
+						alimentacao.setValor(0.0);
+					} else {
+						alimentacao.setIdFormaPagamento(pags.getFormaPagamento().getId());
+						somaAlimentacao += pags.getValorPago();
+						alimentacao.setValor(somaAlimentacao);
+					}
+					
 			} else if(pags.getFormaPagamento().getId() == 5 ) {
+					assinar.setIdFormaPagamento(pags.getFormaPagamento().getId());
 					assinar.setPagamento(pags.getFormaPagamento().getFormaPagamento());
 					somaAssinar += pags.getValorPago();
 					assinar.setValor(somaAssinar);
-			} else if(pags.getFormaPagamento().getId() == 5 ) {
-					online.setPagamento(pags.getFormaPagamento().getFormaPagamento());
-					somaOnline += pags.getValorPago();
-					online.setValor(somaOnline);
+			} else if(pags.getFormaPagamento().getId() == 6 ) {
+					String onlinePag = pags.getFormaPagamento().getFormaPagamento();
+					
+					System.out.println(onlinePag);
+					if(onlinePag == null) {
+						online.setPagamento("Pagamento Online");
+						online.setValor(0.0);
+					} else {
+						online.setIdFormaPagamento(pags.getFormaPagamento().getId());
+						somaOnline += pags.getValorPago();
+						online.setValor(somaOnline);
+					}
+					
 			}
 				
 			
@@ -168,14 +189,20 @@ public class PagamentoServiceImpl implements PagamentoService{
 		resumos.add(dinheiro);
 		resumos.add(debito);
 		resumos.add(credito);
-		resumos.add(alimentacao);
-		resumos.add(assinar);
-		resumos.add(online);
+		if(alimentacao.getPagamento() != null) {
+			resumos.add(alimentacao);
+		}
 		
+		resumos.add(assinar);
+		if(online.getPagamento() != null) {
+			resumos.add(online);
+		}
 		
 		return resumos;
-		
 	
-	
+	}
+	 @Override
+	public List<Pagamento> pagamentosPorFormaPagamento(Integer id) {
+		return this.pagamentoRepository.findByFormaPagamentoId(id);
 	}
 }

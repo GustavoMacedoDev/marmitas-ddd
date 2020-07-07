@@ -26,5 +26,6 @@ public interface PagamentoRepository extends JpaRepository<Pagamento, Integer>{
 	@Query(value = "update pagamento set status = 1 where id = ?", nativeQuery = true)
 	void encerraPagamento(Integer id);
 
+	List<Pagamento> findByFormaPagamentoId(Integer id);
 
 }

@@ -38,5 +38,7 @@ public interface PedidoService {
 	List<Pedido> findByOpAtendimentoIdInativos(Integer id); 
 
 	Pedido find(Integer idPedido);
+	
+	int totalDePedidos();
 
 }

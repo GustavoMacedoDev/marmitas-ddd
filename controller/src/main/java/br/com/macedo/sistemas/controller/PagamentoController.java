@@ -73,6 +73,12 @@ public class PagamentoController {
 	public @ResponseBody List<Pagamento> findByEntrega(@Validated @PathVariable Integer id) {
 		return this.pagamentoService.findByIdPedido(id);
 	}
+	
+	@RequestMapping(value = "/pagamento/analitico/{id}", method = RequestMethod.GET)
+	public @ResponseBody List<Pagamento> findByIdFormaPagamento(@Validated @PathVariable Integer id) {
+		return this.pagamentoService.pagamentosPorFormaPagamento(id);
+	}
+	
 
 }
 
