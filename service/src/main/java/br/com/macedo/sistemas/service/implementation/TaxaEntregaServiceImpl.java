@@ -11,7 +11,7 @@ import br.com.macedo.sistemas.domain.repository.TaxaEntregaRepository;
 import br.com.macedo.sistemas.domain.service.TaxaEntregaService;
 
 @Service
-public class TaxaEntregaServiceImpl implements TaxaEntregaService{
+public class TaxaEntregaServiceImpl implements TaxaEntregaService {
 	
 	@Autowired
 	private TaxaEntregaRepository txRepository;

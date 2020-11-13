@@ -10,7 +10,7 @@ import br.com.macedo.sistemas.domain.repository.UsuarioRepository;
 import br.com.macedo.sistemas.domain.service.UsuarioService;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;

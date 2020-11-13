@@ -19,8 +19,9 @@ import br.com.macedo.sistemas.domain.dto.ResumoFaturamentoDto;
 import br.com.macedo.sistemas.domain.repository.PagamentoRepository;
 import br.com.macedo.sistemas.domain.service.PagamentoService;
 
+// corrigir
 @Service
-public class PagamentoServiceImpl implements PagamentoService{
+public class PagamentoServiceImpl implements PagamentoService {
 	
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
@@ -119,6 +120,8 @@ public class PagamentoServiceImpl implements PagamentoService{
 	public List<ResumoFaturamentoDto> resumoFaturamento() {
 		List<Pagamento> pagamentos = new ArrayList<>();
 		
+		
+		
 		pagamentos = pagamentoRepository.findAll();
 		
 		ResumoFaturamentoDto dinheiro = new ResumoFaturamentoDto();
@@ -135,6 +138,8 @@ public class PagamentoServiceImpl implements PagamentoService{
 		double somaAssinar = 0;
 		double somaOnline = 0;
 		for(Pagamento pags: pagamentos) {
+			
+			System.out.println("Pagamentos " + pags.getId());
 			if(pags.getFormaPagamento().getId() == 1 ) {
 					dinheiro.setIdFormaPagamento(pags.getFormaPagamento().getId());
 					dinheiro.setPagamento(pags.getFormaPagamento().getFormaPagamento());

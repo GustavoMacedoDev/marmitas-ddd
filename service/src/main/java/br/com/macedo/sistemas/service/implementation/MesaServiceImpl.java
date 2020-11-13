@@ -16,7 +16,7 @@ import br.com.macedo.sistemas.domain.repository.MesaRepository;
 import br.com.macedo.sistemas.domain.service.MesaService;
 
 @Service
-public class MesaServiceImpl implements MesaService{
+public class MesaServiceImpl implements MesaService {
 
 	@Autowired
 	private MesaRepository mesaRepository;

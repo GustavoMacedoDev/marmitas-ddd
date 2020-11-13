@@ -13,7 +13,7 @@ import br.com.macedo.sistemas.domain.repository.EnderecoRepository;
 import br.com.macedo.sistemas.domain.service.ClienteService;
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
+public class ClienteServiceImpl implements ClienteService {
 	
 	@Autowired
 	private ClienteRepository clienteRepository;

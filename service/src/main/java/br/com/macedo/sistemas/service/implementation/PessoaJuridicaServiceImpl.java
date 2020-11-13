@@ -13,7 +13,7 @@ import br.com.macedo.sistemas.domain.repository.PjRepository;
 import br.com.macedo.sistemas.domain.service.PessoaJuridicaService;
 
 @Service
-public class PessoaJuridicaServiceImpl implements PessoaJuridicaService{
+public class PessoaJuridicaServiceImpl implements PessoaJuridicaService {
 	
 	private static final Logger log = LoggerFactory.getLogger(PessoaJuridicaServiceImpl.class);
 	

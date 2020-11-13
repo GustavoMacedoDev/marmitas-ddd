@@ -26,7 +26,7 @@ public class EnderecoController {
 	@RequestMapping(value = "/cadastra-endereco",method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Validated @RequestBody Endereco endereco) {
 		
-		Endereco end = enderecoService.insert(endereco);
+		Endereco end = enderecoService.save(endereco);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(end.getIdEndereco()).toUri();

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.macedo.sistemas.domain.aggregate.Adicional;
 import br.com.macedo.sistemas.domain.repository.AdicionalRepository;
 import br.com.macedo.sistemas.domain.service.AdicionalService;
+
 @Service
 public class AdicionalServiceImpl implements AdicionalService {
 

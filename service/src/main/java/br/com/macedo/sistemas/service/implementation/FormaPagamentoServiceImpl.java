@@ -13,7 +13,7 @@ import br.com.macedo.sistemas.domain.repository.FormaPagamentoRepository;
 import br.com.macedo.sistemas.domain.service.FormaPagamentoService;
 
 @Service
-public class FormaPagamentoServiceImpl implements FormaPagamentoService{
+public class FormaPagamentoServiceImpl implements FormaPagamentoService {
 
 	@Autowired
 	private FormaPagamentoRepository formaPagamentoRepository;
@@ -21,7 +21,7 @@ public class FormaPagamentoServiceImpl implements FormaPagamentoService{
 	@Override
 	public List<FormaPagamento> findAll() {
 
-			return formaPagamentoRepository.findAll();
+		return formaPagamentoRepository.findAll();
 	}
 
 	@Override

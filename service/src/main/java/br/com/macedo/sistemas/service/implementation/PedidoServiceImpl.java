@@ -17,9 +17,9 @@ import br.com.macedo.sistemas.domain.exceptions.ObjectNotFoundException;
 import br.com.macedo.sistemas.domain.repository.ItemPedidoRepository;
 import br.com.macedo.sistemas.domain.repository.PedidoRepository;
 import br.com.macedo.sistemas.domain.service.PedidoService;
-
+//corrigir
 @Service
-public class PedidoServiceImpl implements PedidoService{
+public class PedidoServiceImpl implements PedidoService {
 	
 	@Autowired
 	private PedidoRepository pedidoRepository;

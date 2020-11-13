@@ -14,10 +14,9 @@ public class EnderecoServiceImpl implements EnderecoService{
 	private EnderecoRepository endRepository;
 
 	@Override
-	public Endereco insert(Endereco endereco) {
+	public Endereco save(Endereco endereco) {
 		return endRepository.save(endereco);
 	}
 	
 	
-
 }

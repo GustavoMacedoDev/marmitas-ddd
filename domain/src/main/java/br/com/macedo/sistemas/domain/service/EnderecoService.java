@@ -4,6 +4,6 @@ import br.com.macedo.sistemas.domain.aggregate.Endereco;
 
 public interface EnderecoService {
 	
-	Endereco insert(Endereco endereco);
+	Endereco save(Endereco endereco);
 
 }

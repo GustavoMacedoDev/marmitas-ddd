@@ -86,5 +86,4 @@ public class ProdutoServiceImpl implements ProdutoService {
 		return this.produtoRepository.findAllEntrega();
 	}
 	
-	
 }

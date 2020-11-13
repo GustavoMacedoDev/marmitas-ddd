@@ -10,7 +10,7 @@ import br.com.macedo.sistemas.domain.repository.OpcaoAtendimentoRepository;
 import br.com.macedo.sistemas.domain.service.OpcaoAtendimentoService;
 
 @Service
-public class OpcaoAtendimentoServiceImpl implements OpcaoAtendimentoService{
+public class OpcaoAtendimentoServiceImpl implements OpcaoAtendimentoService {
 	
 	@Autowired
 	private OpcaoAtendimentoRepository opRepository;
