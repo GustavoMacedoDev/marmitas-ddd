@@ -12,9 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import br.com.macedo.sistemas.domain.enums.PerfilEnum;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "usuario")
+@Getter @Setter @EqualsAndHashCode
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -34,38 +38,6 @@ public class Usuario implements Serializable{
 
 	public Usuario() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public PerfilEnum getPerfilEnum() {
-		return perfilEnum;
-	}
-
-	public void setPerfilEnum(PerfilEnum perfilEnum) {
-		this.perfilEnum = perfilEnum;
 	}
 	
 }

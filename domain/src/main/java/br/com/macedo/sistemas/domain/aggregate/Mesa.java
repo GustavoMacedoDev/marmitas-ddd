@@ -14,9 +14,13 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "mesa", uniqueConstraints={@UniqueConstraint(columnNames={"numero_mesa"})})
+@Getter @Setter @EqualsAndHashCode
 public class Mesa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -47,89 +51,5 @@ public class Mesa implements Serializable{
 	public Mesa() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNumeroMesa() {
-		return numeroMesa;
-	}
-
-	public void setNumeroMesa(String numeroMesa) {
-		this.numeroMesa = numeroMesa;
-	}
-
-	public int getCodigoMesa() {
-		return codigoMesa;
-	}
-
-	public void setCodigoMesa(int codigoMesa) {
-		this.codigoMesa = codigoMesa;
-	}
-
-	
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
-	public List<Pagamento> getPagamentos() {
-		return pagamentos;
-	}
-
-	public void setPagamentos(List<Pagamento> pagamentos) {
-		this.pagamentos = pagamentos;
-	}
-
-	public double getValorPagoParcial() {
-		return valorPagoParcial;
-	}
-
-	public void setValorPagoParcial(double valorPagoParcial) {
-		this.valorPagoParcial = valorPagoParcial;
-	}
-
-	public double getTotalMesa() {
-		return totalMesa;
-	}
-
-	public void setTotalMesa(double totalMesa) {
-		this.totalMesa = totalMesa;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Mesa other = (Mesa) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	
-	
 
 }
