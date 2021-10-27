@@ -27,7 +27,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 
 	@Override
 	public Categoria find(int id) {
-		return categoriaRepository.getOne(id);
+		return categoriaRepository.findById(id);
 	}
 	
 }
